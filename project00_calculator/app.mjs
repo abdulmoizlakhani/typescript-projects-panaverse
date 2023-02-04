@@ -9,10 +9,10 @@ let operator = "";
 let result = null;
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 function welcome() {
-    const msg = `Cal-Cool`;
+    const msg = `Cal-Coolator`;
     figlet(msg, (err, data) => {
         console.log(gradient.pastel.multiline(data));
-        rainbowTitle = chalkAnimation.rainbow("Welcome to Cal-Cool! (A CLI based calculator developed by amlakhani)");
+        rainbowTitle = chalkAnimation.rainbow("Welcome to Cal-Coolator! (A CLI based calculator developed by amlakhani)");
     });
 }
 async function howToGuide() {
