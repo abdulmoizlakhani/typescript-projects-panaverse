@@ -5,10 +5,10 @@ import chalkAnimation from "chalk-animation";
 import figlet from "figlet";
 import gradient from "gradient-string";
 import inquirer from "inquirer";
-// import { createSpinner } from "nanospinner";
 
-let playerName;
 let rainbowTitle: chalkAnimation.Animation;
+let operator: string = "";
+let result: number | null = null;
 
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 
@@ -25,10 +25,10 @@ function welcome() {
 async function howToGuide() {
   console.log(`
     ${chalk.black.bgYellow("HOW TO USE?")}
-    ${chalk.white("1. Choose Operator (+, -, *, /)")}
-    ${chalk.white("2. Insert count of operands (e.g. 2, 3, 4, ...)")}
-    ${chalk.white("3. Provide operands")}
-    ${chalk.white("4. You will see the result of Calculation")}
+    ${chalk.white("1. Insert Number")}
+    ${chalk.white("2. Choose Operator (+, -, *, /)")}
+    ${chalk.white("3. Repeat above steps again (optional)")}
+    ${chalk.white("4. Calculate Result")}
   `);
 }
 
@@ -37,72 +37,90 @@ async function askForOperation() {
     name: "operator",
     type: "list",
     message: "Choose the Operator from below list",
-    choices: ["Plus (+)", "Minus (-)", "Multiply (*)", "Divide (/)"],
+    choices: [
+      "Plus (+)",
+      "Minus (-)",
+      "Multiply (*)",
+      "Divide (/)",
+      "Calculate Result",
+      "Exit",
+    ],
   });
 
-  return answer;
+  if (answer.operator === "Calculate Result") {
+    generateResult();
+  } else if (answer.operator === "Exit") {
+    process.exit();
+  } else {
+    operator = answer.operator;
+    askForOperand();
+  }
 }
 
-async function askForOperandsCount() {
-  const { count } = await inquirer.prompt({
-    name: "count",
+async function askForOperand() {
+  const answer = await inquirer.prompt({
+    name: "operand",
     type: "number",
-    message: "Provide count of operands. E.g. (2, 3, ...). Must be > 1",
+    message: `Enter Number`,
     default() {
-      return 2;
+      return 0;
     },
   });
 
-  if (count <= 0) {
-    console.log(
-      chalk.white.bgRed("Count can't be 0 or negative. Please insert again")
-    );
-    askForOperandsCount();
-  }
-
-  return { count };
+  calculate(answer.operand, operator);
 }
 
-async function askForOperands(count: number) {
-  let operands: number[] = [];
-
-  for (let i = 0; i < count; i++) {
-    const { operand } = await inquirer.prompt({
-      name: "operand",
-      type: "number",
-      message: `Provide Operand ${i + 1}`,
-      default() {
-        return 0;
-      },
-    });
-
-    operands.push(operand);
-  }
-
-  return { operands };
-}
-
-async function generateResult(operator: string, operands: number[]) {
-  let result = 0;
-
-  switch (operator) {
+function calculate(operand: number, oper: string) {
+  switch (oper) {
     case "Plus (+)":
-      result = operands.reduce((sum, acc) => sum + acc, 0);
+      if (result) {
+        result = result + operand;
+        operator = "";
+      } else {
+        result = operand;
+        operator = "";
+      }
+      askForOperation();
       break;
     case "Minus (-)":
-      result = operands.reduce((sum, acc) => acc - sum, 0);
+      if (result) {
+        result = result - operand;
+        operator = "";
+      } else {
+        result = operand;
+        operator = "";
+      }
+      askForOperation();
       break;
     case "Multiply (*)":
-      result = operands.reduce((sum, acc) => sum * acc, 1);
+      if (result) {
+        result = result * operand;
+        operator = "";
+      } else {
+        result = operand;
+        operator = "";
+      }
+      askForOperation();
       break;
     case "Divide (/)":
-      result = operands.reduce((sum, acc) => sum / acc, 1);
+      if (result) {
+        result = result / operand;
+        operator = "";
+      } else {
+        result = operand;
+        operator = "";
+      }
+      askForOperation();
       break;
     default:
+      result = operand;
+      askForOperation();
       break;
   }
+}
 
-  return { result };
+function generateResult() {
+  console.log(chalk.whiteBright.bgGreen(`RESULT: ${result}`));
 }
 
 try {
@@ -111,11 +129,7 @@ try {
   await sleep();
   rainbowTitle.stop();
   await howToGuide();
-  const { operator } = await askForOperation();
-  const { count } = await askForOperandsCount();
-  const { operands } = await askForOperands(count);
-  const { result } = await generateResult(operator, operands);
-  console.log(chalk.whiteBright.bgGreen(`RESULT: ${result}`));
+  await askForOperand();
 } catch (error) {
   console.log("ERROR: ", error);
 }
