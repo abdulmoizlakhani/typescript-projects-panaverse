@@ -1,6 +1,6 @@
-# guess-the-number
+# guess-the-number-champ
 
-guess-the-number is a cli based interactive game created for fun in leisure time.
+guess-the-number-champ is a cli based interactive game created for fun in leisure time.
 
 ## Features
 
@@ -9,7 +9,7 @@ guess-the-number is a cli based interactive game created for fun in leisure time
 
 ## Tech
 
-guess-the-number uses a number of open source projects to work properly:
+guess-the-number-champ uses a number of open source projects to work properly:
 
 - chalk
 - chalk-animation
@@ -21,7 +21,7 @@ guess-the-number uses a number of open source projects to work properly:
 ## Installation
 
 ```sh
-npm i guess-the-number
+npm i guess-the-number-champ
 ```
 
 ## License
