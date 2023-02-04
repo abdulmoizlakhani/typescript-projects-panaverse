@@ -22,7 +22,7 @@ Cal-Coolator uses a number of open source projects to work properly:
 ## Installation
 
 ```sh
-npm i cal-coolator
+npx cal-coolator
 ```
 
 ## License

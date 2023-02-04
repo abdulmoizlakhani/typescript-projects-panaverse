@@ -21,7 +21,7 @@ guess-the-number-champ uses a number of open source projects to work properly:
 ## Installation
 
 ```sh
-npm i guess-the-number-champ
+npx guess-the-number-champ
 ```
 
 ## License
