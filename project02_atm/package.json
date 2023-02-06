@@ -1,5 +1,5 @@
 {
-  "name": "cli-atm-machine",
+  "name": "atm-machine-cli",
   "version": "1.0.0",
   "description": "",
   "main": "app.ts",

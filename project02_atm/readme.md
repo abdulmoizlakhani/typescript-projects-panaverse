@@ -1,6 +1,6 @@
-# cli-atm-machine
+# atm-machine-cli
 
-cli-atm-machine is a cli based interactive atm program created for testing atm experience.
+atm-machine-cli is a cli based interactive atm program created for testing atm experience.
 
 ## Features
 
@@ -8,7 +8,7 @@ cli-atm-machine is a cli based interactive atm program created for testing atm e
 
 ## Tech
 
-cli-atm-machine uses a number of open source projects to work properly:
+atm-machine-cli uses a number of open source projects to work properly:
 
 - chalk
 - chalk-animation
@@ -20,7 +20,7 @@ cli-atm-machine uses a number of open source projects to work properly:
 ## Installation
 
 ```sh
-npx cli-atm-machine
+npx atm-machine-cli
 ```
 
 ## License
