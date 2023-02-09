@@ -113,27 +113,32 @@ async function askForOperation() {
         message: `Enter amount of ${currency2}`,
       });
 
-      console.log("\nCurrent Conversion Rates:");
+      if (amount <= 0) {
+        console.log(chalk.whiteBright.bgRed("\nAmount can't be 0 or less!"));
+        askForOperation();
+      } else {
+        console.log("\nCurrent Conversion Rates:");
 
-      const selectedCurrency = currenciesList.find(
-        (c) => c.currency === currency2
-      );
+        const selectedCurrency = currenciesList.find(
+          (c) => c.currency === currency2
+        );
 
-      console.log(
-        chalk.white.bgBlue(
-          `1 ${currency2} = ${selectedCurrency["exchangeRates"][currency]} ${currency} \n`
-        )
-      );
+        console.log(
+          chalk.white.bgBlue(
+            `1 ${currency2} = ${selectedCurrency["exchangeRates"][currency]} ${currency} \n`
+          )
+        );
 
-      console.log("\nYou will get:");
+        console.log("\nYou will get:");
 
-      console.log(
-        chalk.white.bgBlue(
-          `${amount} ${currency2} = ${
-            selectedCurrency["exchangeRates"][currency] * amount
-          } ${currency} \n`
-        )
-      );
+        console.log(
+          chalk.white.bgBlue(
+            `${amount} ${currency2} = ${
+              selectedCurrency["exchangeRates"][currency] * amount
+            } ${currency} \n`
+          )
+        );
+      }
     }
   }
 }
