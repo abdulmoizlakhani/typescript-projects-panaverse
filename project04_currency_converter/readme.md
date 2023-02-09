@@ -1,6 +1,6 @@
-# currency-converter
+# cli-currency-convert
 
-currency-converter is a cli based interactive todo application created for managing daily basis tasks.
+cli-currency-convert is a cli based interactive todo application created for managing daily basis tasks.
 
 ## Features
 
@@ -8,7 +8,7 @@ currency-converter is a cli based interactive todo application created for manag
 
 ## Tech
 
-currency-converter uses a number of open source projects to work properly:
+cli-currency-convert uses a number of open source projects to work properly:
 
 - chalk
 - chalk-animation
@@ -20,7 +20,7 @@ currency-converter uses a number of open source projects to work properly:
 ## Installation
 
 ```sh
-npx currency-converter
+npx cli-currency-convert
 ```
 
 ## License
