@@ -6,40 +6,7 @@ import figlet from "figlet";
 import gradient from "gradient-string";
 import inquirer from "inquirer";
 
-interface ExchangeRates {
-  [currency: string]: number;
-}
-
-interface Currency {
-  currency: string;
-  exchangeRates: ExchangeRates;
-}
-
 let rainbowTitle: chalkAnimation.Animation;
-
-let currenciesList: Currency[] = [
-  {
-    currency: "USD",
-    exchangeRates: {
-      PKR: 272.75,
-      EUR: 0.93,
-    },
-  },
-  {
-    currency: "PKR",
-    exchangeRates: {
-      USD: 0.0037,
-      EUR: 0.0034,
-    },
-  },
-  {
-    currency: "EUR",
-    exchangeRates: {
-      PKR: 293.47,
-      USD: 1.08,
-    },
-  },
-];
 
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 
