@@ -1,6 +1,6 @@
 # cli-student-management-system
 
-cli-student-management-system is a cli based interactive word count & character count application.
+cli-student-management-system is a cli based interactive student management application.
 
 ## Features
 
