@@ -1,6 +1,6 @@
 # cli-countdown-timer
 
-cli-countdown-timer is a cli based interactive word count & character count application.
+cli-countdown-timer is a cli based interactive countdown timer application.
 
 ## Features
 
