@@ -1,6 +1,6 @@
 # techno-quiz
 
-techno-quiz is a cli based interactive todo application created for managing daily basis tasks.
+techno-quiz is a cli based interactive quiz application having quiz for physics, technology, biology and english grammar.
 
 ## Features
 
