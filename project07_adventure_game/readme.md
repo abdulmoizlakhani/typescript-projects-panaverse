@@ -1,6 +1,6 @@
 # dungeon-master
 
-dungeon-master is a cli based interactive word count & character count application.
+dungeon-master is a cli based interactive adventure game.
 
 ## Features
 
@@ -15,7 +15,6 @@ dungeon-master uses a number of open source projects to work properly:
 - figlet
 - gradient-string
 - inquirer
-- nanospinner
 
 ## Installation
 
